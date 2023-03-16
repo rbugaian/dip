@@ -14,4 +14,6 @@ struct BeamerApp: App {
             ContentView()
         }
     }
+    
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 }

@@ -14,6 +14,7 @@
 		1A98F4FB29B69498001EFB2F /* BeamerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A98F4FA29B69498001EFB2F /* BeamerTests.swift */; };
 		1A98F50529B69498001EFB2F /* BeamerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A98F50429B69498001EFB2F /* BeamerUITests.swift */; };
 		1A98F50729B69498001EFB2F /* BeamerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A98F50629B69498001EFB2F /* BeamerUITestsLaunchTests.swift */; };
+		1A98F51429B800AC001EFB2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A98F51329B800AC001EFB2F /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		1A98F50029B69498001EFB2F /* BeamerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeamerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A98F50429B69498001EFB2F /* BeamerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeamerUITests.swift; sourceTree = "<group>"; };
 		1A98F50629B69498001EFB2F /* BeamerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeamerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1A98F51329B800AC001EFB2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				1A98F4EC29B69497001EFB2F /* Assets.xcassets */,
 				1A98F4F129B69497001EFB2F /* Beamer.entitlements */,
 				1A98F4EE29B69497001EFB2F /* Preview Content */,
+				1A98F51329B800AC001EFB2F /* AppDelegate.swift */,
 			);
 			path = Beamer;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A98F51429B800AC001EFB2F /* AppDelegate.swift in Sources */,
 				1A98F4EB29B69495001EFB2F /* ContentView.swift in Sources */,
 				1A98F4E929B69495001EFB2F /* BeamerApp.swift in Sources */,
 			);
