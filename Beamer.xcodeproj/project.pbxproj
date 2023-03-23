@@ -15,6 +15,9 @@
 		1A98F50529B69498001EFB2F /* BeamerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A98F50429B69498001EFB2F /* BeamerUITests.swift */; };
 		1A98F50729B69498001EFB2F /* BeamerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A98F50629B69498001EFB2F /* BeamerUITestsLaunchTests.swift */; };
 		1A98F51429B800AC001EFB2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A98F51329B800AC001EFB2F /* AppDelegate.swift */; };
+		1ADE682029CA340100333805 /* mobile_apns_tester_cert.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 1ADE681F29CA340100333805 /* mobile_apns_tester_cert.p12 */; };
+		1ADE682229CA345000333805 /* CertificateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE682129CA345000333805 /* CertificateRepository.swift */; };
+		1ADE682429CA3F2400333805 /* PushService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE682329CA3F2400333805 /* PushService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		1A98F50429B69498001EFB2F /* BeamerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeamerUITests.swift; sourceTree = "<group>"; };
 		1A98F50629B69498001EFB2F /* BeamerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeamerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1A98F51329B800AC001EFB2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1ADE681F29CA340100333805 /* mobile_apns_tester_cert.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mobile_apns_tester_cert.p12; sourceTree = "<group>"; };
+		1ADE682129CA345000333805 /* CertificateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateRepository.swift; sourceTree = "<group>"; };
+		1ADE682329CA3F2400333805 /* PushService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,7 @@
 		1A98F4DC29B69495001EFB2F = {
 			isa = PBXGroup;
 			children = (
+				1ADE681F29CA340100333805 /* mobile_apns_tester_cert.p12 */,
 				1A98F4E729B69495001EFB2F /* Beamer */,
 				1A98F4F929B69498001EFB2F /* BeamerTests */,
 				1A98F50329B69498001EFB2F /* BeamerUITests */,
@@ -103,6 +110,8 @@
 				1A98F4F129B69497001EFB2F /* Beamer.entitlements */,
 				1A98F4EE29B69497001EFB2F /* Preview Content */,
 				1A98F51329B800AC001EFB2F /* AppDelegate.swift */,
+				1ADE682129CA345000333805 /* CertificateRepository.swift */,
+				1ADE682329CA3F2400333805 /* PushService.swift */,
 			);
 			path = Beamer;
 			sourceTree = "<group>";
@@ -236,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ADE682029CA340100333805 /* mobile_apns_tester_cert.p12 in Resources */,
 				1A98F4F029B69497001EFB2F /* Preview Assets.xcassets in Resources */,
 				1A98F4ED29B69497001EFB2F /* Assets.xcassets in Resources */,
 			);
@@ -263,7 +273,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A98F51429B800AC001EFB2F /* AppDelegate.swift in Sources */,
+				1ADE682229CA345000333805 /* CertificateRepository.swift in Sources */,
 				1A98F4EB29B69495001EFB2F /* ContentView.swift in Sources */,
+				1ADE682429CA3F2400333805 /* PushService.swift in Sources */,
 				1A98F4E929B69495001EFB2F /* BeamerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

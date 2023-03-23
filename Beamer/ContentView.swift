@@ -12,6 +12,8 @@ struct ContentView: View {
     @State var pushToken: String = ""
     @State var payloadContent: String = ""
 
+    let certificateRepo = CertificateRepository()
+
     var body: some View {
         VStack(alignment: .leading) {
             Picker(selection: .constant(1), label: Text("")) {
@@ -19,7 +21,7 @@ struct ContentView: View {
                 Text("Select .p12 certificate...").tag(2)
                 Text("Select .p8 certificate...").tag(3)
             }
-            .padding( .trailing, 8.0)
+            .padding(.trailing, 8.0)
             .padding(.top, 8.0)
 
             Toggle(isOn: $sandboxModeOn) {
@@ -45,17 +47,37 @@ struct ContentView: View {
                 }.frame(width: 150)
                     .padding(.trailing, 8.0)
             }
-            
+
             TextEditor(text: $payloadContent)
                 .padding(.leading, 8.0)
                 .padding(.trailing, 8.0)
                 .padding(.bottom, 8.0)
+
+            HStack(alignment: .bottom) {
+                Spacer()
+                Button {
+//                    certificateRepo.importCertificate()
+
+                    Task {
+                        let certHelper = CertificateHelper(certificateUrl: Bundle
+                            .main
+                            .url(
+                                forResource: "mobile_apns_tester_cert",
+                                withExtension: "p12"
+                            )!, password: "Qwertyui92")
+                        await certHelper.load()
+                    }
+                } label: {
+                    Text("Send")
+                }
+                .padding(.trailing, 8.0)
+                .padding(.bottom, 8.0)
+            }
         }
         .padding(4.0)
         .frame(minWidth: 600, minHeight: 300)
         .frame(maxWidth: .infinity, alignment: .leading)
         .frame(maxHeight: .infinity, alignment: .top)
-        
     }
 }
 
