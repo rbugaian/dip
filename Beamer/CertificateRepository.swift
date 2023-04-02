@@ -48,8 +48,9 @@ class CertificateHelper {
         var items: CFArray?
         if let certificateData = certificateData {
             
-            let resultStatus: OSStatus = SecPKCS12Import(certificateData, options as CFDictionary, &items)
-            let count = CFArrayGetCount(items)
+            let importResult: OSStatus = SecPKCS12Import(certificateData, options as CFDictionary, &items)
+            print("Import result: \(importResult)")
+            
             let identityDict = unsafeBitCast(CFArrayGetValueAtIndex(items, 0), to: CFDictionary.self) as NSDictionary
             let identity = identityDict["identity"] as! SecIdentity
             let trustRef = identityDict["trust"] as! SecTrust

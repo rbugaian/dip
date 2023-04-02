@@ -13,6 +13,7 @@ struct ContentView: View {
     @State var payloadContent: String = ""
 
     let certificateRepo = CertificateRepository()
+    let pushService = PushService()
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -56,8 +57,6 @@ struct ContentView: View {
             HStack(alignment: .bottom) {
                 Spacer()
                 Button {
-//                    certificateRepo.importCertificate()
-
                     Task {
                         let certHelper = CertificateHelper(certificateUrl: Bundle
                             .main
@@ -66,6 +65,11 @@ struct ContentView: View {
                                 withExtension: "p12"
                             )!, password: "Qwertyui92")
                         await certHelper.load()
+                        let p12Content = certHelper.pks12Content
+                        print("P12: \(p12Content)")
+                        
+                        let token = "66ae50eb15cf536f31f01005a09f8be4c3b254d7a863ad2e5fa2d6555d170543"
+                        await pushService.sendPush(toToken: token, withContent: "{ \"aps\" : { \"alert\" : \"Hello\" } }", authorizedWith: p12Content!)
                     }
                 } label: {
                     Text("Send")
