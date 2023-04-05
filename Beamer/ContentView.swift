@@ -9,18 +9,28 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var viewModel = ViewModel()
-    
+
     @State private var isSandbox = true
+
+    @State var certSelection = 1
 
     var body: some View {
         VStack(alignment: .leading) {
-            Picker(selection: .constant(1), label: Text("")) {
-                Text("Select Push Certificate").tag(1)
-                Text("Select .p12 certificate...").tag(2)
-                Text("Select .p8 certificate...").tag(3)
+            Picker(selection: $viewModel.certificateSelection, label: Text("")) {
+                ForEach(viewModel.certificatePickerItems) { item in
+                    Text(item.text).tag(item.id)
+                }
             }
             .padding(.trailing, 8.0)
             .padding(.top, 8.0)
+            .onChange(of: viewModel.certificateSelection) { newValue in
+                logger.debug("PickerChanged: \(newValue)")
+                switch newValue {
+                case -2: viewModel.startP12CertificateImport()
+                case -3: viewModel.importP8Certificate()
+                default: break // do nothing
+                }
+            }
 
             Toggle(isOn: $viewModel.sandboxModeOn) {
                 Text("Should use sandbox environment.")
@@ -88,6 +98,11 @@ struct ContentView: View {
         .frame(minWidth: 600, minHeight: 300)
         .frame(maxWidth: .infinity, alignment: .leading)
         .frame(maxHeight: .infinity, alignment: .top)
+        .sheet(isPresented: $viewModel.passwordSheetShown) {
+            logger.debug("Sheet dismissed!")
+        } content: {
+            P12CertificatePasswordInputView(viewModel: viewModel)
+        }
     }
 }
 

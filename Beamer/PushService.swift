@@ -8,7 +8,7 @@
 import Foundation
 
 class PushService: NSObject {
-    let pks12Content: PKS12Content
+    let pks12Content: PKS12Certificate
 
     private var _urlSession: URLSession?
     var urlSession: URLSession {
@@ -25,7 +25,7 @@ class PushService: NSObject {
         }
     }
 
-    init(withPKS12Content pksContent: PKS12Content) {
+    init(withPKS12Content pksContent: PKS12Certificate) {
         pks12Content = pksContent
         super.init()
     }
@@ -33,14 +33,20 @@ class PushService: NSObject {
     func sendPush(
         toToken token: String,
         withContent content: String,
-        authorizedWith certificate: PKS12Content,
-        isSandbox: Bool
+        isSandbox: Bool,
+        expiry: Int = 0,
+        priority: Int = 1,
+        bundleId: String? = nil
     ) async -> PushResult? {
         let url = url(forToken: token, isSandbox: isSandbox)!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
-        urlRequest.addValue("10", forHTTPHeaderField: "apns-priority")
-        urlRequest.addValue("dev.rbugaian.MobileApnsTester", forHTTPHeaderField: "apns-topic")
+        urlRequest.addValue("\(priority)", forHTTPHeaderField: "apns-priority")
+        urlRequest.addValue("\(expiry)", forHTTPHeaderField: "apns-expiration")
+        
+        if let bundleId = bundleId {
+            urlRequest.addValue(bundleId, forHTTPHeaderField: "apns-topic")
+        }
 
         urlRequest.httpBody = content.data(using: .utf8)
 

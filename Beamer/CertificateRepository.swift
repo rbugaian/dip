@@ -27,6 +27,34 @@ class CertificateRepository {
             print("Missing file")
         }
     }
+    
+    func importP12Certificate(fromUrl url: URL, withPassword password: String) -> PKS12Certificate? {
+        let certificateData = try? Data(contentsOf: url) as CFData
+        guard let certificateData = certificateData else {
+            logger.error("Could not get certificate data.")
+            return nil
+        }
+        
+        var items: CFArray?
+        var options: [String: String] = [:]
+        let key = kSecImportExportPassphrase as String
+        options[key] = password
+
+        let importResult: OSStatus = SecPKCS12Import(certificateData, options as CFDictionary, &items)
+        logger.debug("Import result: \(importResult)")
+        if importResult != 0 || items == nil {
+            logger.error("Error importing certificate.")
+            return nil
+        }
+        
+        let identityDict = unsafeBitCast(CFArrayGetValueAtIndex(items, 0), to: CFDictionary.self) as NSDictionary
+        let identity = identityDict["identity"] as! SecIdentity
+        let trustRef = identityDict["trust"] as! SecTrust
+        let label = identityDict["label"] as! String
+        
+        let certificate = PKS12Certificate(identity: identity, trust: trustRef, label: label)
+        return certificate
+    }
 }
 
 class CertificateHelper {
@@ -35,7 +63,7 @@ class CertificateHelper {
 
     private var certificateItems: CFArray?
     
-    var pks12Content: PKS12Content?
+    var pks12Content: PKS12Certificate?
 
     init(certificateUrl: URL, password: String) {
         certificateData = try? Data(contentsOf: certificateUrl) as CFData
@@ -56,13 +84,13 @@ class CertificateHelper {
             let trustRef = identityDict["trust"] as! SecTrust
             let label = identityDict["label"] as! String
             
-            self.pks12Content = PKS12Content(identity: identity, trust: trustRef, label: label)
+            self.pks12Content = PKS12Certificate(identity: identity, trust: trustRef, label: label)
             print("Loaded pks12..")
         }
     }
 }
 
-struct PKS12Content {
+struct PKS12Certificate {
     let identity: SecIdentity
     let trust: SecTrust
     let label: String

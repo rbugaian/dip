@@ -5,6 +5,7 @@
 //  Created by Roman Bugaian on 06.03.23.
 //
 
+import Logging
 import SwiftUI
 
 @main
@@ -13,7 +14,12 @@ struct BeamerApp: App {
         WindowGroup {
             ContentView()
         }
+        .commands {
+            CommandGroup(
+                replacing: CommandGroupPlacement.newItem
+            ) { }
+        }
     }
-    
+
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 }
