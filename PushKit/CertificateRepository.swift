@@ -93,3 +93,9 @@ struct PKS12Certificate {
     let trust: SecTrust
     let label: String
 }
+
+struct P8Certificate {
+    let certificateUrl: URL
+    var teamId: String?
+    var keyId: String?
+}

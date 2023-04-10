@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A1B2C6329DCC75E0069AE86 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 1A1B2C6229DCC75E0069AE86 /* Logging */; };
 		1A1B2C6529DCE3040069AE86 /* P12CertificatePasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1B2C6429DCE3040069AE86 /* P12CertificatePasswordInputView.swift */; };
+		1A8740BF29E436320053A2EC /* P8CertificateImportTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8740BE29E436320053A2EC /* P8CertificateImportTransaction.swift */; };
 		1A98F4E929B69495001EFB2F /* PushKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A98F4E829B69495001EFB2F /* PushKit.swift */; };
 		1A98F4EB29B69495001EFB2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A98F4EA29B69495001EFB2F /* ContentView.swift */; };
 		1A98F4ED29B69497001EFB2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A98F4EC29B69497001EFB2F /* Assets.xcassets */; };
@@ -42,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		1A1B2C6429DCE3040069AE86 /* P12CertificatePasswordInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P12CertificatePasswordInputView.swift; sourceTree = "<group>"; };
+		1A8740BE29E436320053A2EC /* P8CertificateImportTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P8CertificateImportTransaction.swift; sourceTree = "<group>"; };
+		1A8740C029E4527A0053A2EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1A98F4E529B69495001EFB2F /* PushKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A98F4E829B69495001EFB2F /* PushKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushKit.swift; sourceTree = "<group>"; };
 		1A98F4EA29B69495001EFB2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 		1A98F4E729B69495001EFB2F /* PushKit */ = {
 			isa = PBXGroup;
 			children = (
+				1A8740C029E4527A0053A2EC /* Info.plist */,
 				1A98F4E829B69495001EFB2F /* PushKit.swift */,
 				1A98F4EA29B69495001EFB2F /* ContentView.swift */,
 				1A9B4D4A29DB7E5100714021 /* ViewModel.swift */,
@@ -118,6 +122,7 @@
 				1ADE682129CA345000333805 /* CertificateRepository.swift */,
 				1ADE682329CA3F2400333805 /* PushService.swift */,
 				1A1B2C6429DCE3040069AE86 /* P12CertificatePasswordInputView.swift */,
+				1A8740BE29E436320053A2EC /* P8CertificateImportTransaction.swift */,
 			);
 			path = PushKit;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				1A98F51429B800AC001EFB2F /* AppDelegate.swift in Sources */,
 				1A1B2C6529DCE3040069AE86 /* P12CertificatePasswordInputView.swift in Sources */,
 				1ADE682229CA345000333805 /* CertificateRepository.swift in Sources */,
+				1A8740BF29E436320053A2EC /* P8CertificateImportTransaction.swift in Sources */,
 				1A98F4EB29B69495001EFB2F /* ContentView.swift in Sources */,
 				1ADE682429CA3F2400333805 /* PushService.swift in Sources */,
 				1A9B4D4B29DB7E5100714021 /* ViewModel.swift in Sources */,
@@ -454,6 +460,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PushKit/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = PushKit;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -483,6 +490,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PushKit/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = PushKit;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";

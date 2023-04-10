@@ -27,9 +27,19 @@ struct ContentView: View {
                 logger.debug("PickerChanged: \(newValue)")
                 switch newValue {
                 case -2: viewModel.startP12CertificateImport()
-                case -3: viewModel.importP8Certificate()
+                case -3: viewModel.startP8CertificateImport()
                 default: break // do nothing
                 }
+            }
+            
+            if viewModel.p8CredentialsRequired {
+                TextField("Key ID", text: $viewModel.keyId)
+                    .padding(.leading, 8.0)
+                    .padding(.trailing, 8.0)
+                
+                TextField("Team ID", text: $viewModel.teamId)
+                    .padding(.leading, 8.0)
+                    .padding(.trailing, 8.0)
             }
 
             Toggle(isOn: $viewModel.sandboxModeOn) {

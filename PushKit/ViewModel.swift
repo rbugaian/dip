@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import UniformTypeIdentifiers
 
 class ViewModel: ObservableObject {
     @Published var bundleId: String = ""
@@ -25,6 +26,11 @@ class ViewModel: ObservableObject {
     @Published var passwordSheetShown = false
 
     var pendingP12CertificateTransaction: P12CertificateImportTransaction?
+    var pendingP8CertificateTransaction: P8CertificateImportTransaction?
+    
+    @Published var p8CredentialsRequired = false
+    @Published var teamId: String = ""
+    @Published var keyId: String = ""
 
     @Published var certificatePickerItems: [CertificatePickerItem] = [
         CertificatePickerItem(
@@ -87,6 +93,9 @@ class ViewModel: ObservableObject {
 
                 pendingP12CertificateTransaction = nil
             }
+        } else {
+            certificateSelection = -1
+            pendingP12CertificateTransaction = nil
         }
     }
 
@@ -127,7 +136,38 @@ class ViewModel: ObservableObject {
         }
     }
 
-    func importP8Certificate() { }
+    func startP8CertificateImport() {
+        pendingP8CertificateTransaction = P8CertificateImportTransaction()
+        let panel = NSOpenPanel()
+        panel.allowsMultipleSelection = false
+        panel.canChooseDirectories = false
+
+        let p8Type = UTType("dev.rbugaian.p8")
+        guard let p8Type = p8Type else {
+            logger.error("Could not parse UTType.")
+            return
+        }
+
+        panel.allowedContentTypes = [p8Type]
+        if panel.runModal() == .OK {
+            pendingP8CertificateTransaction?.certificateURL = panel.url
+            logger.debug("Selected P8 file url: \(pendingP8CertificateTransaction?.certificateURL)")
+            
+            let certificateItem = CertificatePickerItem(
+                id: certificatePickerItems.count + 1,
+                text: "P8 Key: \(pendingP8CertificateTransaction?.certificateURL?.lastPathComponent ?? "null")"
+            )
+            certificatePickerItems.insert(certificateItem, at: certificatePickerItems.count - 2)
+            certificateSelection = certificateItem.id
+
+            p8CredentialsRequired = true
+        } else {
+            logger.debug("P8 file selection cancelled.")
+            pendingP8CertificateTransaction = nil
+            p8CredentialsRequired = false
+            certificateSelection = -1
+        }
+    }
 
     func sendPush() {
         logger.debug("BundleID: \(bundleId)")
@@ -155,10 +195,12 @@ class ViewModel: ObservableObject {
 struct P12CertificateImportTransaction {
     var certificatePassword: String?
     var certificateURL: URL?
+    var p8Certificate: P8Certificate?
 }
 
 struct CertificatePickerItem: Identifiable {
     var id: Int
     var text: String
     var p12Certificate: PKS12Certificate?
+    var p8Certificate: P8Certificate?
 }
