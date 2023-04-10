@@ -9,7 +9,6 @@ import Foundation
 import Security
 
 class CertificateRepository {
-    
     func importCertificate() {
         let fileUrl = Bundle.main.url(forResource: "mobile_apns_tester_cert", withExtension: "p12")
         if let fileUrl = fileUrl {
@@ -27,14 +26,14 @@ class CertificateRepository {
             print("Missing file")
         }
     }
-    
+
     func importP12Certificate(fromUrl url: URL, withPassword password: String) -> PKS12Certificate? {
         let certificateData = try? Data(contentsOf: url) as CFData
         guard let certificateData = certificateData else {
             logger.error("Could not get certificate data.")
             return nil
         }
-        
+
         var items: CFArray?
         var options: [String: String] = [:]
         let key = kSecImportExportPassphrase as String
@@ -46,12 +45,12 @@ class CertificateRepository {
             logger.error("Error importing certificate.")
             return nil
         }
-        
+
         let identityDict = unsafeBitCast(CFArrayGetValueAtIndex(items, 0), to: CFDictionary.self) as NSDictionary
         let identity = identityDict["identity"] as! SecIdentity
         let trustRef = identityDict["trust"] as! SecTrust
         let label = identityDict["label"] as! String
-        
+
         let certificate = PKS12Certificate(identity: identity, trust: trustRef, label: label)
         return certificate
     }
@@ -62,7 +61,7 @@ class CertificateHelper {
     let certificatePassword: String
 
     private var certificateItems: CFArray?
-    
+
     var pks12Content: PKS12Certificate?
 
     init(certificateUrl: URL, password: String) {
@@ -75,16 +74,15 @@ class CertificateHelper {
         let options = [key: certificatePassword]
         var items: CFArray?
         if let certificateData = certificateData {
-            
             let importResult: OSStatus = SecPKCS12Import(certificateData, options as CFDictionary, &items)
             print("Import result: \(importResult)")
-            
+
             let identityDict = unsafeBitCast(CFArrayGetValueAtIndex(items, 0), to: CFDictionary.self) as NSDictionary
             let identity = identityDict["identity"] as! SecIdentity
             let trustRef = identityDict["trust"] as! SecTrust
             let label = identityDict["label"] as! String
-            
-            self.pks12Content = PKS12Certificate(identity: identity, trust: trustRef, label: label)
+
+            pks12Content = PKS12Certificate(identity: identity, trust: trustRef, label: label)
             print("Loaded pks12..")
         }
     }

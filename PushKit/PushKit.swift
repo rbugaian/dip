@@ -9,7 +9,7 @@ import Logging
 import SwiftUI
 
 @main
-struct BeamerApp: App {
+struct PushKit: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
