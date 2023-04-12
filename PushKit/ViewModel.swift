@@ -27,10 +27,30 @@ class ViewModel: ObservableObject {
 
     var pendingP12CertificateTransaction: P12CertificateImportTransaction?
     var pendingP8CertificateTransaction: P8CertificateImportTransaction?
-    
+
     @Published var p8CredentialsRequired = false
-    @Published var teamId: String = ""
-    @Published var keyId: String = ""
+     
+    @Published var teamId: String = "" {
+        didSet {
+            let index = certificatePickerItems.firstIndex(
+                where: { $0.id == selectedPickerItemId }
+            )
+            if let index = index {
+                self.certificatePickerItems[index].p8Certificate?.teamId = teamId
+            }
+        }
+    }
+    
+    @Published var keyId: String = "" {
+        didSet {
+            let index = certificatePickerItems.firstIndex(
+                where: { $0.id == selectedPickerItemId }
+            )
+            if let index = index {
+                self.certificatePickerItems[index].p8Certificate?.keyId = keyId
+            }
+        }
+    }
 
     @Published var certificatePickerItems: [CertificatePickerItem] = [
         CertificatePickerItem(
@@ -72,6 +92,32 @@ class ViewModel: ObservableObject {
     var selectedP12Certificate: PKS12Certificate? {
         let selectedItem = certificatePickerItems.first(where: { $0.id == certificateSelection })
         return selectedItem?.p12Certificate
+    }
+    
+    var selectedPickerItem: CertificatePickerItem?
+    var selectedPickerItemId: Int = -1
+
+    func handlePickerSelection(_ itemId: Int) {
+        logger.debug("PickerChanged: \(itemId)")
+        switch itemId {
+        case -2: startP12CertificateImport()
+        case -3: startP8CertificateImport()
+        default: break // do nothing
+        }
+        
+        selectedPickerItem = certificatePickerItems.first(where: { $0.id == itemId })
+        selectedPickerItemId = itemId
+        
+        if itemId == -3 || selectedPickerItem?.p8Certificate != nil {
+            p8CredentialsRequired = true
+        } else {
+            p8CredentialsRequired = false
+        }
+        
+        if let p8Item = selectedPickerItem?.p8Certificate {
+            self.keyId = p8Item.keyId ?? ""
+            self.teamId = p8Item.teamId ?? ""
+        }
     }
 
     func startP12CertificateImport() {
@@ -152,11 +198,17 @@ class ViewModel: ObservableObject {
         if panel.runModal() == .OK {
             pendingP8CertificateTransaction?.certificateURL = panel.url
             logger.debug("Selected P8 file url: \(pendingP8CertificateTransaction?.certificateURL)")
-            
-            let certificateItem = CertificatePickerItem(
+
+            var certificateItem = CertificatePickerItem(
                 id: certificatePickerItems.count + 1,
                 text: "P8 Key: \(pendingP8CertificateTransaction?.certificateURL?.lastPathComponent ?? "null")"
             )
+            
+            if let url = pendingP8CertificateTransaction?.certificateURL {
+                var certificate = P8Certificate(certificateUrl: url)
+                certificateItem.p8Certificate = certificate
+            }
+            
             certificatePickerItems.insert(certificateItem, at: certificatePickerItems.count - 2)
             certificateSelection = certificateItem.id
 

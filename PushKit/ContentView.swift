@@ -24,19 +24,14 @@ struct ContentView: View {
             .padding(.trailing, 8.0)
             .padding(.top, 8.0)
             .onChange(of: viewModel.certificateSelection) { newValue in
-                logger.debug("PickerChanged: \(newValue)")
-                switch newValue {
-                case -2: viewModel.startP12CertificateImport()
-                case -3: viewModel.startP8CertificateImport()
-                default: break // do nothing
-                }
+                viewModel.handlePickerSelection(newValue)
             }
-            
+
             if viewModel.p8CredentialsRequired {
                 TextField("Key ID", text: $viewModel.keyId)
                     .padding(.leading, 8.0)
                     .padding(.trailing, 8.0)
-                
+
                 TextField("Team ID", text: $viewModel.teamId)
                     .padding(.leading, 8.0)
                     .padding(.trailing, 8.0)
@@ -83,20 +78,6 @@ struct ContentView: View {
                 Spacer()
                 Button {
                     viewModel.sendPush()
-//                    Task {
-//                        let certHelper = CertificateHelper(certificateUrl: Bundle
-//                            .main
-//                            .url(
-//                                forResource: "mobile_apns_tester_cert",
-//                                withExtension: "p12"
-//                            )!, password: "Qwertyui92")
-//                        await certHelper.load()
-//                        let p12Content = certHelper.pks12Content
-//                        print("P12: \(p12Content)")
-//
-//                        let token = "66ae50eb15cf536f31f01005a09f8be4c3b254d7a863ad2e5fa2d6555d170543"
-//                        await pushService.sendPush(toToken: token, withContent: "{ \"aps\" : { \"alert\" : \"Hello\" } }", authorizedWith: p12Content!)
-//                    }
                 } label: {
                     Text("Send")
                 }
