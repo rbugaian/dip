@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04A33C9429D700C7000BA4DB /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A33C9329D700C7000BA4DB /* AppReducer.swift */; };
+		04A33C9729D701C3000BA4DB /* FilePickerReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A33C9629D701C3000BA4DB /* FilePickerReducer.swift */; };
+		04DB7D8229C347E600603633 /* CertificateFilePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DB7D8129C347E600603633 /* CertificateFilePicker.swift */; };
+		04DB7D8729C357A200603633 /* FilePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DB7D8629C357A200603633 /* FilePicker.swift */; };
+		04DB7D8A29C35F0A00603633 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 04DB7D8929C35F0A00603633 /* ComposableArchitecture */; };
+		04DB7D9129C3647200603633 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 04DB7D9029C3647200603633 /* README.md */; };
 		1A98F4E929B69495001EFB2F /* BeamerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A98F4E829B69495001EFB2F /* BeamerApp.swift */; };
 		1A98F4EB29B69495001EFB2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A98F4EA29B69495001EFB2F /* ContentView.swift */; };
 		1A98F4ED29B69497001EFB2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A98F4EC29B69497001EFB2F /* Assets.xcassets */; };
@@ -35,6 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04A33C9329D700C7000BA4DB /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
+		04A33C9629D701C3000BA4DB /* FilePickerReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePickerReducer.swift; sourceTree = "<group>"; };
+		04DB7D8129C347E600603633 /* CertificateFilePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateFilePicker.swift; sourceTree = "<group>"; };
+		04DB7D8629C357A200603633 /* FilePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePicker.swift; sourceTree = "<group>"; };
+		04DB7D9029C3647200603633 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1A98F4E529B69495001EFB2F /* Beamer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beamer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A98F4E829B69495001EFB2F /* BeamerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeamerApp.swift; sourceTree = "<group>"; };
 		1A98F4EA29B69495001EFB2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DB7D8A29C35F0A00603633 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,9 +86,100 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04A33C9529D701AD000BA4DB /* FilePicker */ = {
+			isa = PBXGroup;
+			children = (
+				04A33C9629D701C3000BA4DB /* FilePickerReducer.swift */,
+			);
+			path = FilePicker;
+			sourceTree = "<group>";
+		};
+		04DB7D8029C347B900603633 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				04DB7D8B29C35FA400603633 /* Main */,
+				04DB7D8429C3559900603633 /* FilePicker */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		04DB7D8329C3551000603633 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				04DB7D8529C3578C00603633 /* FilePicker */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		04DB7D8429C3559900603633 /* FilePicker */ = {
+			isa = PBXGroup;
+			children = (
+				04DB7D8129C347E600603633 /* CertificateFilePicker.swift */,
+			);
+			path = FilePicker;
+			sourceTree = "<group>";
+		};
+		04DB7D8529C3578C00603633 /* FilePicker */ = {
+			isa = PBXGroup;
+			children = (
+				04DB7D8629C357A200603633 /* FilePicker.swift */,
+			);
+			path = FilePicker;
+			sourceTree = "<group>";
+		};
+		04DB7D8B29C35FA400603633 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1A98F4EA29B69495001EFB2F /* ContentView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		04DB7D8C29C361DE00603633 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				04DB7D8F29C363E300603633 /* Reducer */,
+				04DB7D8E29C363C800603633 /* Action */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		04DB7D8E29C363C800603633 /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				04DB7D9629C4B5FA00603633 /* Main */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
+		04DB7D8F29C363E300603633 /* Reducer */ = {
+			isa = PBXGroup;
+			children = (
+				04A33C9529D701AD000BA4DB /* FilePicker */,
+				04DB7D9329C4B4DA00603633 /* Main */,
+			);
+			path = Reducer;
+			sourceTree = "<group>";
+		};
+		04DB7D9329C4B4DA00603633 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				04A33C9329D700C7000BA4DB /* AppReducer.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		04DB7D9629C4B5FA00603633 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		1A98F4DC29B69495001EFB2F = {
 			isa = PBXGroup;
 			children = (
+				04DB7D9029C3647200603633 /* README.md */,
 				1A98F4E729B69495001EFB2F /* Beamer */,
 				1A98F4F929B69498001EFB2F /* BeamerTests */,
 				1A98F50329B69498001EFB2F /* BeamerUITests */,
@@ -97,9 +200,11 @@
 		1A98F4E729B69495001EFB2F /* Beamer */ = {
 			isa = PBXGroup;
 			children = (
-				1A98F4E829B69495001EFB2F /* BeamerApp.swift */,
-				1A98F4EA29B69495001EFB2F /* ContentView.swift */,
+				04DB7D8C29C361DE00603633 /* Domain */,
+				04DB7D8329C3551000603633 /* Data */,
+				04DB7D8029C347B900603633 /* Presentation */,
 				1A98F4EC29B69497001EFB2F /* Assets.xcassets */,
+				1A98F4E829B69495001EFB2F /* BeamerApp.swift */,
 				1A98F4F129B69497001EFB2F /* Beamer.entitlements */,
 				1A98F4EE29B69497001EFB2F /* Preview Content */,
 				1A98F51329B800AC001EFB2F /* AppDelegate.swift */,
@@ -148,6 +253,9 @@
 			dependencies = (
 			);
 			name = Beamer;
+			packageProductDependencies = (
+				04DB7D8929C35F0A00603633 /* ComposableArchitecture */,
+			);
 			productName = Beamer;
 			productReference = 1A98F4E529B69495001EFB2F /* Beamer.app */;
 			productType = "com.apple.product-type.application";
@@ -220,6 +328,9 @@
 				Base,
 			);
 			mainGroup = 1A98F4DC29B69495001EFB2F;
+			packageReferences = (
+				04DB7D8829C35F0900603633 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 1A98F4E629B69495001EFB2F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -236,6 +347,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DB7D9129C3647200603633 /* README.md in Resources */,
 				1A98F4F029B69497001EFB2F /* Preview Assets.xcassets in Resources */,
 				1A98F4ED29B69497001EFB2F /* Assets.xcassets in Resources */,
 			);
@@ -262,7 +374,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A33C9429D700C7000BA4DB /* AppReducer.swift in Sources */,
 				1A98F51429B800AC001EFB2F /* AppDelegate.swift in Sources */,
+				04DB7D8229C347E600603633 /* CertificateFilePicker.swift in Sources */,
+				04DB7D8729C357A200603633 /* FilePicker.swift in Sources */,
+				04A33C9729D701C3000BA4DB /* FilePickerReducer.swift in Sources */,
 				1A98F4EB29B69495001EFB2F /* ContentView.swift in Sources */,
 				1A98F4E929B69495001EFB2F /* BeamerApp.swift in Sources */,
 			);
@@ -420,11 +536,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Beamer/Beamer.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Beamer/Preview Content\"";
-				DEVELOPMENT_TEAM = 54MM8888KF;
+				DEVELOPMENT_TEAM = TZN3LA6FWM;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -433,6 +550,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.rbugaian.Beamer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -447,11 +565,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Beamer/Beamer.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Beamer/Preview Content\"";
-				DEVELOPMENT_TEAM = 54MM8888KF;
+				DEVELOPMENT_TEAM = TZN3LA6FWM;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -460,6 +579,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.rbugaian.Beamer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -580,6 +700,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		04DB7D8829C35F0900603633 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		04DB7D8929C35F0A00603633 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04DB7D8829C35F0900603633 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1A98F4DD29B69495001EFB2F /* Project object */;
 }

@@ -5,6 +5,7 @@
 //  Created by Roman Bugaian on 06.03.23.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
 @main
@@ -14,6 +15,6 @@ struct BeamerApp: App {
             ContentView()
         }
     }
-    
+
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 }

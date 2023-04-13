@@ -5,6 +5,7 @@
 //  Created by Roman Bugaian on 06.03.23.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
 struct ContentView: View {
@@ -14,12 +15,9 @@ struct ContentView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Picker(selection: .constant(1), label: Text("")) {
-                Text("Select Push Certificate").tag(1)
-                Text("Select .p12 certificate...").tag(2)
-                Text("Select .p8 certificate...").tag(3)
-            }
-            .padding( .trailing, 8.0)
+            CertificateFilePicker(
+            )
+            .padding(.trailing, 8.0)
             .padding(.top, 8.0)
 
             Toggle(isOn: $sandboxModeOn) {
@@ -45,7 +43,7 @@ struct ContentView: View {
                 }.frame(width: 150)
                     .padding(.trailing, 8.0)
             }
-            
+
             TextEditor(text: $payloadContent)
                 .padding(.leading, 8.0)
                 .padding(.trailing, 8.0)
@@ -55,7 +53,6 @@ struct ContentView: View {
         .frame(minWidth: 600, minHeight: 300)
         .frame(maxWidth: .infinity, alignment: .leading)
         .frame(maxHeight: .infinity, alignment: .top)
-        
     }
 }
 
