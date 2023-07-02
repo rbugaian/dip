@@ -9,7 +9,7 @@ import Logging
 import SwiftUI
 
 @main
-struct PushKit: App {
+struct DipApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

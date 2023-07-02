@@ -10,7 +10,7 @@
 		1A1B2C6329DCC75E0069AE86 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 1A1B2C6229DCC75E0069AE86 /* Logging */; };
 		1A1B2C6529DCE3040069AE86 /* P12CertificatePasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1B2C6429DCE3040069AE86 /* P12CertificatePasswordInputView.swift */; };
 		1A8740BF29E436320053A2EC /* P8CertificateImportTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8740BE29E436320053A2EC /* P8CertificateImportTransaction.swift */; };
-		1A98F4E929B69495001EFB2F /* PushKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A98F4E829B69495001EFB2F /* PushKit.swift */; };
+		1A98F4E929B69495001EFB2F /* DipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A98F4E829B69495001EFB2F /* DipApp.swift */; };
 		1A98F4EB29B69495001EFB2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A98F4EA29B69495001EFB2F /* ContentView.swift */; };
 		1A98F4ED29B69497001EFB2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A98F4EC29B69497001EFB2F /* Assets.xcassets */; };
 		1A98F4F029B69497001EFB2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A98F4EF29B69497001EFB2F /* Preview Assets.xcassets */; };
@@ -45,14 +45,14 @@
 		1A1B2C6429DCE3040069AE86 /* P12CertificatePasswordInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P12CertificatePasswordInputView.swift; sourceTree = "<group>"; };
 		1A8740BE29E436320053A2EC /* P8CertificateImportTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P8CertificateImportTransaction.swift; sourceTree = "<group>"; };
 		1A8740C029E4527A0053A2EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		1A98F4E529B69495001EFB2F /* PushKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A98F4E829B69495001EFB2F /* PushKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushKit.swift; sourceTree = "<group>"; };
+		1A98F4E529B69495001EFB2F /* Dip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A98F4E829B69495001EFB2F /* DipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DipApp.swift; sourceTree = "<group>"; };
 		1A98F4EA29B69495001EFB2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1A98F4EC29B69497001EFB2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A98F4EF29B69497001EFB2F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		1A98F4F629B69498001EFB2F /* PushKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PushKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A98F4F629B69498001EFB2F /* DipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A98F4FA29B69498001EFB2F /* PushKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushKitTests.swift; sourceTree = "<group>"; };
-		1A98F50029B69498001EFB2F /* PushKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PushKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A98F50029B69498001EFB2F /* DipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A98F50429B69498001EFB2F /* PushKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushKitUITests.swift; sourceTree = "<group>"; };
 		1A98F50629B69498001EFB2F /* PushKitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushKitUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1A98F51329B800AC001EFB2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,9 +92,9 @@
 			isa = PBXGroup;
 			children = (
 				1ADE681F29CA340100333805 /* mobile_apns_tester_cert.p12 */,
-				1A98F4E729B69495001EFB2F /* PushKit */,
-				1A98F4F929B69498001EFB2F /* PushKitTests */,
-				1A98F50329B69498001EFB2F /* PushKitUITests */,
+				1A98F4E729B69495001EFB2F /* Dip */,
+				1A98F4F929B69498001EFB2F /* DipTests */,
+				1A98F50329B69498001EFB2F /* DipUITests */,
 				1A98F4E629B69495001EFB2F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,18 +102,18 @@
 		1A98F4E629B69495001EFB2F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1A98F4E529B69495001EFB2F /* PushKit.app */,
-				1A98F4F629B69498001EFB2F /* PushKitTests.xctest */,
-				1A98F50029B69498001EFB2F /* PushKitUITests.xctest */,
+				1A98F4E529B69495001EFB2F /* Dip.app */,
+				1A98F4F629B69498001EFB2F /* DipTests.xctest */,
+				1A98F50029B69498001EFB2F /* DipUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1A98F4E729B69495001EFB2F /* PushKit */ = {
+		1A98F4E729B69495001EFB2F /* Dip */ = {
 			isa = PBXGroup;
 			children = (
 				1A8740C029E4527A0053A2EC /* Info.plist */,
-				1A98F4E829B69495001EFB2F /* PushKit.swift */,
+				1A98F4E829B69495001EFB2F /* DipApp.swift */,
 				1A98F4EA29B69495001EFB2F /* ContentView.swift */,
 				1A9B4D4A29DB7E5100714021 /* ViewModel.swift */,
 				1A98F4EC29B69497001EFB2F /* Assets.xcassets */,
@@ -124,7 +124,7 @@
 				1A1B2C6429DCE3040069AE86 /* P12CertificatePasswordInputView.swift */,
 				1A8740BE29E436320053A2EC /* P8CertificateImportTransaction.swift */,
 			);
-			path = PushKit;
+			path = Dip;
 			sourceTree = "<group>";
 		};
 		1A98F4EE29B69497001EFB2F /* Preview Content */ = {
@@ -135,29 +135,29 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		1A98F4F929B69498001EFB2F /* PushKitTests */ = {
+		1A98F4F929B69498001EFB2F /* DipTests */ = {
 			isa = PBXGroup;
 			children = (
 				1A98F4FA29B69498001EFB2F /* PushKitTests.swift */,
 			);
-			path = PushKitTests;
+			path = DipTests;
 			sourceTree = "<group>";
 		};
-		1A98F50329B69498001EFB2F /* PushKitUITests */ = {
+		1A98F50329B69498001EFB2F /* DipUITests */ = {
 			isa = PBXGroup;
 			children = (
 				1A98F50429B69498001EFB2F /* PushKitUITests.swift */,
 				1A98F50629B69498001EFB2F /* PushKitUITestsLaunchTests.swift */,
 			);
-			path = PushKitUITests;
+			path = DipUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1A98F4E429B69495001EFB2F /* PushKit */ = {
+		1A98F4E429B69495001EFB2F /* Dip */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1A98F50A29B69498001EFB2F /* Build configuration list for PBXNativeTarget "PushKit" */;
+			buildConfigurationList = 1A98F50A29B69498001EFB2F /* Build configuration list for PBXNativeTarget "Dip" */;
 			buildPhases = (
 				1A98F4E129B69495001EFB2F /* Sources */,
 				1A98F4E229B69495001EFB2F /* Frameworks */,
@@ -167,17 +167,17 @@
 			);
 			dependencies = (
 			);
-			name = PushKit;
+			name = Dip;
 			packageProductDependencies = (
 				1A1B2C6229DCC75E0069AE86 /* Logging */,
 			);
 			productName = Beamer;
-			productReference = 1A98F4E529B69495001EFB2F /* PushKit.app */;
+			productReference = 1A98F4E529B69495001EFB2F /* Dip.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1A98F4F529B69498001EFB2F /* PushKitTests */ = {
+		1A98F4F529B69498001EFB2F /* DipTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1A98F50D29B69498001EFB2F /* Build configuration list for PBXNativeTarget "PushKitTests" */;
+			buildConfigurationList = 1A98F50D29B69498001EFB2F /* Build configuration list for PBXNativeTarget "DipTests" */;
 			buildPhases = (
 				1A98F4F229B69498001EFB2F /* Sources */,
 				1A98F4F329B69498001EFB2F /* Frameworks */,
@@ -188,14 +188,14 @@
 			dependencies = (
 				1A98F4F829B69498001EFB2F /* PBXTargetDependency */,
 			);
-			name = PushKitTests;
+			name = DipTests;
 			productName = BeamerTests;
-			productReference = 1A98F4F629B69498001EFB2F /* PushKitTests.xctest */;
+			productReference = 1A98F4F629B69498001EFB2F /* DipTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1A98F4FF29B69498001EFB2F /* PushKitUITests */ = {
+		1A98F4FF29B69498001EFB2F /* DipUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1A98F51029B69498001EFB2F /* Build configuration list for PBXNativeTarget "PushKitUITests" */;
+			buildConfigurationList = 1A98F51029B69498001EFB2F /* Build configuration list for PBXNativeTarget "DipUITests" */;
 			buildPhases = (
 				1A98F4FC29B69498001EFB2F /* Sources */,
 				1A98F4FD29B69498001EFB2F /* Frameworks */,
@@ -206,9 +206,9 @@
 			dependencies = (
 				1A98F50229B69498001EFB2F /* PBXTargetDependency */,
 			);
-			name = PushKitUITests;
+			name = DipUITests;
 			productName = BeamerUITests;
-			productReference = 1A98F50029B69498001EFB2F /* PushKitUITests.xctest */;
+			productReference = 1A98F50029B69498001EFB2F /* DipUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -234,7 +234,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1A98F4E029B69495001EFB2F /* Build configuration list for PBXProject "PushKit" */;
+			buildConfigurationList = 1A98F4E029B69495001EFB2F /* Build configuration list for PBXProject "Dip" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -250,9 +250,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1A98F4E429B69495001EFB2F /* PushKit */,
-				1A98F4F529B69498001EFB2F /* PushKitTests */,
-				1A98F4FF29B69498001EFB2F /* PushKitUITests */,
+				1A98F4E429B69495001EFB2F /* Dip */,
+				1A98F4F529B69498001EFB2F /* DipTests */,
+				1A98F4FF29B69498001EFB2F /* DipUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -296,7 +296,7 @@
 				1A98F4EB29B69495001EFB2F /* ContentView.swift in Sources */,
 				1ADE682429CA3F2400333805 /* PushService.swift in Sources */,
 				1A9B4D4B29DB7E5100714021 /* ViewModel.swift in Sources */,
-				1A98F4E929B69495001EFB2F /* PushKit.swift in Sources */,
+				1A98F4E929B69495001EFB2F /* DipApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,12 +322,12 @@
 /* Begin PBXTargetDependency section */
 		1A98F4F829B69498001EFB2F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1A98F4E429B69495001EFB2F /* PushKit */;
+			target = 1A98F4E429B69495001EFB2F /* Dip */;
 			targetProxy = 1A98F4F729B69498001EFB2F /* PBXContainerItemProxy */;
 		};
 		1A98F50229B69498001EFB2F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1A98F4E429B69495001EFB2F /* PushKit */;
+			target = 1A98F4E429B69495001EFB2F /* Dip */;
 			targetProxy = 1A98F50129B69498001EFB2F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -451,24 +451,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = PushKit/PushKit.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Dip/Dip.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PushKit/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Dip/Preview Content\"";
 				DEVELOPMENT_TEAM = 54MM8888KF;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PushKit/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = PushKit;
+				INFOPLIST_FILE = Dip/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Dip;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.rbugaian.PushKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -481,24 +481,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = PushKit/PushKit.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Dip/Dip.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PushKit/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Dip/Preview Content\"";
 				DEVELOPMENT_TEAM = 54MM8888KF;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PushKit/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = PushKit;
+				INFOPLIST_FILE = Dip/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Dip;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.rbugaian.PushKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -521,7 +521,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PushKit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PushKit";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dip.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Dip";
 			};
 			name = Debug;
 		};
@@ -540,7 +540,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PushKit.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PushKit";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dip.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Dip";
 			};
 			name = Release;
 		};
@@ -581,7 +581,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1A98F4E029B69495001EFB2F /* Build configuration list for PBXProject "PushKit" */ = {
+		1A98F4E029B69495001EFB2F /* Build configuration list for PBXProject "Dip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1A98F50829B69498001EFB2F /* Debug */,
@@ -590,7 +590,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1A98F50A29B69498001EFB2F /* Build configuration list for PBXNativeTarget "PushKit" */ = {
+		1A98F50A29B69498001EFB2F /* Build configuration list for PBXNativeTarget "Dip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1A98F50B29B69498001EFB2F /* Debug */,
@@ -599,7 +599,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1A98F50D29B69498001EFB2F /* Build configuration list for PBXNativeTarget "PushKitTests" */ = {
+		1A98F50D29B69498001EFB2F /* Build configuration list for PBXNativeTarget "DipTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1A98F50E29B69498001EFB2F /* Debug */,
@@ -608,7 +608,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1A98F51029B69498001EFB2F /* Build configuration list for PBXNativeTarget "PushKitUITests" */ = {
+		1A98F51029B69498001EFB2F /* Build configuration list for PBXNativeTarget "DipUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1A98F51129B69498001EFB2F /* Debug */,

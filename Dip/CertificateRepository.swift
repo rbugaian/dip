@@ -21,7 +21,7 @@ class CertificateRepository {
 
             let securityError: OSStatus = SecPKCS12Import(p12Data! as CFData, options as CFDictionary, &items)
             print("import status: \(securityError)")
-            print("items: \(items)")
+            print("items: \(String(describing: items))")
         } else {
             print("Missing file")
         }

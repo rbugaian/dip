@@ -63,11 +63,11 @@ class ViewModel: ObservableObject {
             text: "Import .p12 certificate..",
             p12Certificate: nil
         ),
-        CertificatePickerItem(
-            id: -3,
-            text: "Import .p8 certificate..",
-            p12Certificate: nil
-        ),
+//        CertificatePickerItem(
+//            id: -3,
+//            text: "Import .p8 certificate..",
+//            p12Certificate: nil
+//        ),
     ]
 
     var priorityFromSelection: Int {
