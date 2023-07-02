@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/rbugaian/Projects/Demilab/Beamer/Dip.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

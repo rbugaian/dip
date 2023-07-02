@@ -79,6 +79,14 @@ class ViewModel: ObservableObject {
             return 1
         }
     }
+    
+    var selectPushCertificateItemCopy: CertificatePickerItem {
+        return CertificatePickerItem(
+            id: -1,
+            text: "Select push certificate",
+            p12Certificate: nil
+        )
+    }
 
     var expiryFromSelection: TimeInterval {
         switch selectedExpiry {
@@ -177,6 +185,8 @@ class ViewModel: ObservableObject {
 
             logger.debug("Initialised push service.")
             pushService = PushService(withPKS12Content: certificate)
+            
+            removeDefaultSelectCertificateItem()
         } else {
             certificateSelection = -1
         }
@@ -241,6 +251,10 @@ class ViewModel: ObservableObject {
             )
             logger.debug("Push result: \(String(describing: pushResult))")
         }
+    }
+    
+    func removeDefaultSelectCertificateItem(){
+        certificatePickerItems.removeAll(where: { $0.id == -1 })
     }
 }
 
