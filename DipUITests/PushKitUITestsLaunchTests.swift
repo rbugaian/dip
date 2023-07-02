@@ -7,7 +7,7 @@
 
 import XCTest
 
-final class BeamerUITestsLaunchTests: XCTestCase {
+final class PushKitUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

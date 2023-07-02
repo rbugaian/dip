@@ -7,8 +7,15 @@
 
 import Foundation
 import AppKit
+import Logging
+
+var logger = Logger(label: "dev.rbugaian.beamer-logger")
 
 class AppDelegate: NSObject, NSApplicationDelegate {
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        logger.logLevel = .debug
+    }
+    
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return true
     }
