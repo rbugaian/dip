@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A0AD9172AA659DC0091CBAA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0AD9162AA659DC0091CBAA /* Colors.swift */; };
 		1A1B2C6329DCC75E0069AE86 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 1A1B2C6229DCC75E0069AE86 /* Logging */; };
 		1A1B2C6529DCE3040069AE86 /* P12CertificatePasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1B2C6429DCE3040069AE86 /* P12CertificatePasswordInputView.swift */; };
 		1A8740BF29E436320053A2EC /* P8CertificateImportTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8740BE29E436320053A2EC /* P8CertificateImportTransaction.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A0AD9162AA659DC0091CBAA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		1A1B2C6429DCE3040069AE86 /* P12CertificatePasswordInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P12CertificatePasswordInputView.swift; sourceTree = "<group>"; };
 		1A8740BE29E436320053A2EC /* P8CertificateImportTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P8CertificateImportTransaction.swift; sourceTree = "<group>"; };
 		1A8740C029E4527A0053A2EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				1ADE682329CA3F2400333805 /* PushService.swift */,
 				1A1B2C6429DCE3040069AE86 /* P12CertificatePasswordInputView.swift */,
 				1A8740BE29E436320053A2EC /* P8CertificateImportTransaction.swift */,
+				1A0AD9162AA659DC0091CBAA /* Colors.swift */,
 			);
 			path = Dip;
 			sourceTree = "<group>";
@@ -219,7 +222,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					1A98F4E429B69495001EFB2F = {
 						CreatedOnToolsVersion = 14.2;
@@ -290,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A98F51429B800AC001EFB2F /* AppDelegate.swift in Sources */,
+				1A0AD9172AA659DC0091CBAA /* Colors.swift in Sources */,
 				1A1B2C6529DCE3040069AE86 /* P12CertificatePasswordInputView.swift in Sources */,
 				1ADE682229CA345000333805 /* CertificateRepository.swift in Sources */,
 				1A8740BF29E436320053A2EC /* P8CertificateImportTransaction.swift in Sources */,
@@ -366,6 +370,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -426,6 +431,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -455,6 +461,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Dip/Preview Content\"";
 				DEVELOPMENT_TEAM = 54MM8888KF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -468,7 +475,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.rbugaian.PushKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -485,6 +492,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Dip/Preview Content\"";
 				DEVELOPMENT_TEAM = 54MM8888KF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -498,7 +506,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.rbugaian.PushKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -513,6 +521,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 54MM8888KF;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -532,6 +541,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 54MM8888KF;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -550,6 +560,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 54MM8888KF;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -567,6 +578,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 54MM8888KF;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;

@@ -70,11 +70,24 @@ struct ContentView: View {
                 .padding(.leading, 8.0)
                 .padding(.trailing, 8.0)
                 .padding(.bottom, 8.0)
-                .disableAutocorrection(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
-                .font(/*@START_MENU_TOKEN@*/ .body/*@END_MENU_TOKEN@*/)
+                .disableAutocorrection(true)
+                .font(.body)
                 .monospaced()
 
             HStack(alignment: .bottom) {
+                if $viewModel.statusTextVisible.wrappedValue {
+                    Text(viewModel.statusText)
+                        .foregroundColor(viewModel.statusColor)
+                        .padding(.bottom, 10.0)
+                        .padding(.leading, 10.0)
+                } else {
+                    Text(viewModel.statusText)
+                        .foregroundColor(viewModel.statusColor)
+                        .padding(.bottom, 10.0)
+                        .padding(.leading, 10.0)
+                        .hidden()
+                }
+                
                 Spacer()
                 Button {
                     viewModel.sendPush()
