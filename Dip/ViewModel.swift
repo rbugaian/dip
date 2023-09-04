@@ -20,6 +20,10 @@ class ViewModel: ObservableObject {
 
     @Published var certificateSelection = -1
 
+    @Published var statusTextVisible = false
+    @Published var statusText = "Status: "
+    @Published var statusColor = Colors.successGreen
+
     let certificateRepository = CertificateRepository()
     var pushService: PushService?
 
@@ -29,25 +33,25 @@ class ViewModel: ObservableObject {
     var pendingP8CertificateTransaction: P8CertificateImportTransaction?
 
     @Published var p8CredentialsRequired = false
-     
+
     @Published var teamId: String = "" {
         didSet {
             let index = certificatePickerItems.firstIndex(
                 where: { $0.id == selectedPickerItemId }
             )
             if let index = index {
-                self.certificatePickerItems[index].p8Certificate?.teamId = teamId
+                certificatePickerItems[index].p8Certificate?.teamId = teamId
             }
         }
     }
-    
+
     @Published var keyId: String = "" {
         didSet {
             let index = certificatePickerItems.firstIndex(
                 where: { $0.id == selectedPickerItemId }
             )
             if let index = index {
-                self.certificatePickerItems[index].p8Certificate?.keyId = keyId
+                certificatePickerItems[index].p8Certificate?.keyId = keyId
             }
         }
     }
@@ -79,7 +83,7 @@ class ViewModel: ObservableObject {
             return 1
         }
     }
-    
+
     var selectPushCertificateItemCopy: CertificatePickerItem {
         return CertificatePickerItem(
             id: -1,
@@ -101,7 +105,7 @@ class ViewModel: ObservableObject {
         let selectedItem = certificatePickerItems.first(where: { $0.id == certificateSelection })
         return selectedItem?.p12Certificate
     }
-    
+
     var selectedPickerItem: CertificatePickerItem?
     var selectedPickerItemId: Int = -1
 
@@ -112,19 +116,19 @@ class ViewModel: ObservableObject {
         case -3: startP8CertificateImport()
         default: break // do nothing
         }
-        
+
         selectedPickerItem = certificatePickerItems.first(where: { $0.id == itemId })
         selectedPickerItemId = itemId
-        
+
         if itemId == -3 || selectedPickerItem?.p8Certificate != nil {
             p8CredentialsRequired = true
         } else {
             p8CredentialsRequired = false
         }
-        
+
         if let p8Item = selectedPickerItem?.p8Certificate {
-            self.keyId = p8Item.keyId ?? ""
-            self.teamId = p8Item.teamId ?? ""
+            keyId = p8Item.keyId ?? ""
+            teamId = p8Item.teamId ?? ""
         }
     }
 
@@ -185,7 +189,7 @@ class ViewModel: ObservableObject {
 
             logger.debug("Initialised push service.")
             pushService = PushService(withPKS12Content: certificate)
-            
+
             removeDefaultSelectCertificateItem()
         } else {
             certificateSelection = -1
@@ -207,18 +211,16 @@ class ViewModel: ObservableObject {
         panel.allowedContentTypes = [p8Type]
         if panel.runModal() == .OK {
             pendingP8CertificateTransaction?.certificateURL = panel.url
-            logger.debug("Selected P8 file url: \(pendingP8CertificateTransaction?.certificateURL)")
-
             var certificateItem = CertificatePickerItem(
                 id: certificatePickerItems.count + 1,
                 text: "P8 Key: \(pendingP8CertificateTransaction?.certificateURL?.lastPathComponent ?? "null")"
             )
-            
+
             if let url = pendingP8CertificateTransaction?.certificateURL {
                 var certificate = P8Certificate(certificateUrl: url)
                 certificateItem.p8Certificate = certificate
             }
-            
+
             certificatePickerItems.insert(certificateItem, at: certificatePickerItems.count - 2)
             certificateSelection = certificateItem.id
 
@@ -250,10 +252,26 @@ class ViewModel: ObservableObject {
                 bundleId: bundleId
             )
             logger.debug("Push result: \(String(describing: pushResult))")
+            Task.detached { @MainActor in
+                if pushResult == nil && (self.certificateSelection == -1 || self.certificateSelection == -2) {
+                    self.presentStatus(withText: "Status: No certificate selected.", ofType: .error)
+                    return
+                }
+
+                if let pushResult = pushResult {
+                    if !pushResult.successed {
+                        self.presentStatus(withText: "Status: \(pushResult.body ?? "Unknown error.")", ofType: .error)
+                    } else {
+                        self.presentStatus(withText: "Status: Success.", ofType: .success)
+                    }
+                } else {
+                    self.presentStatus(withText: "Status: Unknown error.", ofType: .error)
+                }
+            }
         }
     }
-    
-    func removeDefaultSelectCertificateItem(){
+
+    func removeDefaultSelectCertificateItem() {
         certificatePickerItems.removeAll(where: { $0.id == -1 })
     }
 }
@@ -269,4 +287,25 @@ struct CertificatePickerItem: Identifiable {
     var text: String
     var p12Certificate: PKS12Certificate?
     var p8Certificate: P8Certificate?
+}
+
+//
+extension ViewModel {
+    func presentStatus(withText text: String, ofType type: StatusType) {
+        statusText = text
+        if type == .success {
+            statusColor = Colors.successGreen
+        } else {
+            statusColor = Colors.errorRed
+        }
+
+        if !statusTextVisible {
+            statusTextVisible = true
+        }
+    }
+}
+
+enum StatusType {
+    case success
+    case error
 }

@@ -43,7 +43,7 @@ class PushService: NSObject {
         urlRequest.httpMethod = "POST"
         urlRequest.addValue("\(priority)", forHTTPHeaderField: "apns-priority")
         urlRequest.addValue("\(expiry)", forHTTPHeaderField: "apns-expiration")
-        
+
         if let bundleId = bundleId {
             urlRequest.addValue(bundleId, forHTTPHeaderField: "apns-topic")
         }
@@ -53,7 +53,19 @@ class PushService: NSObject {
         do {
             let (data, response) = try await urlSession.data(for: urlRequest)
             let bodyContent = String(data: data, encoding: .utf8)
-            return PushResult(response: response, body: bodyContent)
+
+            do {
+                let httpResponse = response as? HTTPURLResponse
+                if httpResponse?.statusCode != 200 {
+                    let result = try JSONDecoder().decode(PushFailedResult.self, from: data)
+                    return PushResult(response: response, body: result.reason, successed: false)
+                } else if httpResponse?.statusCode == 200 {
+                    return PushResult(response: response, body: "", successed: true)
+                }
+            } catch {
+                logger.error("\(error)")
+                return PushResult(response: response, body: "Unknown error.", successed: false)
+            }
         } catch {
             print("Error sending request: \(error)")
         }
@@ -95,4 +107,12 @@ extension PushService: URLSessionDelegate {
 struct PushResult {
     let response: URLResponse
     let body: String?
+    let successed: Bool
+}
+
+struct PushSuccessResult {
+}
+
+struct PushFailedResult: Decodable {
+    let reason: String
 }
