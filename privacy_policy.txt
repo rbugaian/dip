@@ -1,0 +1,39 @@
+Effective Date: September 8, 2023
+
+1. Introduction
+
+Welcome to "Dip." This Privacy Policy outlines how we collect, use, disclose, and safeguard your information when you use our tool, "Dip." At "Dip," we are committed to protecting your privacy and ensuring the security of your information.
+
+2. Information We Collect
+
+"Dip" does not collect or store any personal data. We do not request, access, or retain any personally identifiable information from our users. The tool's sole purpose is to send push notification payloads to user-selected devices via Apple Push Notification Service (APNS) servers.
+
+3. How We Use Your Information
+
+As mentioned, we do not collect any personal data. Therefore, we do not use your information for any purpose other than delivering push notification payloads to your specified devices via APNS servers.
+
+4. Disclosure of Your Information
+
+We do not share, sell, or disclose any personal data because we do not collect it in the first place. Your privacy is of utmost importance to us, and we take every measure to ensure that your information remains secure and private.
+
+5. Security
+
+We take the security of your information seriously. We employ industry-standard security measures to protect your data from unauthorized access, disclosure, alteration, or destruction. Please be aware that no method of transmission over the internet or electronic storage is entirely secure, but we strive to use commercially acceptable means to protect your data.
+
+6. Updates and Changes to this Privacy Policy
+
+We may update this Privacy Policy as necessary to reflect changes in our practices or for legal compliance purposes. We encourage you to periodically review this policy to stay informed about how we protect your privacy.
+
+7. Contact Us
+
+If you have any questions, concerns, or requests related to this Privacy Policy or the "Dip" tool, please contact us at bugaian.roman@gmail.com.
+
+8. Consent
+
+By using the "Dip" tool, you consent to this Privacy Policy and the practices described herein.
+
+9. Legal Disclaimer
+
+This Privacy Policy is provided for informational purposes only and does not constitute a legally binding agreement.
+
+Thank you for choosing "Dip." We appreciate your trust in us, and we are committed to ensuring your privacy is protected.
